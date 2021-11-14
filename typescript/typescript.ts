@@ -108,5 +108,30 @@ let myStrArr = getArray<string>(["Hello", "World"]);
 myNumArr.push(400); // OK
 myStrArr.push("Hello TypeScript"); // OK
 
-//myNumArr.push("Hi");
-//myStrArr.push(500);
+//myNumArr.push("Hi"); //error
+//myStrArr.push(500); //error
+
+//generic class
+
+class Pair<T,U>
+{ 
+    private first: T;
+    private second: U;
+
+    setKeyValue(first: T, second: U): void { 
+        this.first = first;
+        this.second = second;
+    }
+
+    display():void { 
+        console.log(`first = ${this.first}, second = ${this.second}`);
+    }
+}
+
+let kvp1 = new Pair<number, string>();
+kvp1.setKeyValue(1, "Steve");
+kvp1.display(); //Output: Key = 1, Val = Steve 
+
+let kvp2 = new Pair<string, string>();
+kvp2.setKeyValue("CEO", "Bill"); 
+kvp2.display(); //Output: Key = CEO, Val = Bill
