@@ -1,0 +1,19 @@
+{
+  "name": "javascript_to_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xogml123/Javascript_to_Typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xogml123/Javascript_to_Typescript/issues"
+  },
+  "homepage": "https://github.com/xogml123/Javascript_to_Typescript#readme"
+}
