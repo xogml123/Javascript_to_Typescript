@@ -56,9 +56,8 @@ employee number: ${Employee.getEmployeeNumber()}`,
 );
 
 //Class
-class Boss extends Employee {
-    //inheritance
-    private stockPercentage; //private
+class Boss extends Employee {//inheritance
+    private stockPercentage: number; //private
     constructor(name: string, gender: string, stockPercentage: number) {
         super(name, gender);
         this.stockPercentage = stockPercentage;
