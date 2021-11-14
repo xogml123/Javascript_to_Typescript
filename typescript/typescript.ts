@@ -78,3 +78,35 @@ boss gender: ${boss.gender}
 boss salary: ${boss.evaluateSalary()}
 employee number: ${Employee.getEmployeeNumber()}
 stockPercentage: ${boss.getStockPercentage()}`);
+
+
+//namespace
+
+namespace StringUtility {
+    export function toCapital(str: string): string {
+        return str.toUpperCase();
+    }
+
+    export function SubString(str: string, from: number, length: number = 0): string {
+        return str.substr(from, length);
+    }
+}
+
+const testNamespace = StringUtility.toCapital("aPple");
+console.log(`testNamespace: ${testNamespace}`);
+
+//generics
+//generic function
+
+function getArray<T>(items : T[] ) : T[] {
+    return new Array<T>().concat(items);
+}
+
+let myNumArr = getArray<number>([100, 200, 300]);
+let myStrArr = getArray<string>(["Hello", "World"]);
+
+myNumArr.push(400); // OK
+myStrArr.push("Hello TypeScript"); // OK
+
+//myNumArr.push("Hi");
+//myStrArr.push(500);

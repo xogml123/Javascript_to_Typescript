@@ -1,5 +1,5 @@
 //Type Annotation
-//exports.forModule=3;
+exports.forModule=3;
 function multiply(x, y) {
     return x * y;
 }
@@ -52,3 +52,17 @@ boss gender: ${boss.gender}
 boss salary: ${boss.evaluateSalary()}
 employee number: ${Employee.getEmployeeNumber()}
 stockPercentage: ${boss.getStockPercentage()}`);
+//namespace
+var StringUtility;
+(function (StringUtility) {
+    function toCapital(str) {
+        return str.toUpperCase();
+    }
+    StringUtility.toCapital = toCapital;
+    function SubString(str, from, length = 0) {
+        return str.substr(from, length);
+    }
+    StringUtility.SubString = SubString;
+})(StringUtility || (StringUtility = {}));
+const testNamespace = StringUtility.toCapital("aPple");
+console.log(`testNamespace: ${testNamespace}`);
