@@ -107,8 +107,8 @@ let myStrArr = getArray<string>(["Hello", "World"]);
 myNumArr.push(400); // OK
 myStrArr.push("Hello TypeScript"); // OK
 
-//myNumArr.push("Hi"); //error
-//myStrArr.push(500); //error
+myNumArr.push("Hi"); //error
+myStrArr.push(500); //error
 
 //generic class
 

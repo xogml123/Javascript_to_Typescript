@@ -1,17 +1,17 @@
-//Type Annotation
-//exports.forModule=3;
+// Type Annotation
+// exports.forModule=3;
 exports.forModule = 3;
 function multiply(x, y) {
     return x * y;
 }
-var numbers = multiply(3, 6);
+const numbers = multiply(3, 6);
 const strings = multiply('a', 'b');
 console.log(numbers);
 console.log(strings);
 
-//Interfaces
+// Interfaces
 
-var Employee = (function () {
+const Employee = (function () {
     function Employee(name, gender) {
         this.name = name;
         this.gender = gender;
@@ -21,43 +21,43 @@ var Employee = (function () {
         return this.name.length * 10000 + this.gender.length * 50000;
     };
     Employee.getEmployeeNumber = function () {
-        //static method
+        // static method
         return Employee.employeeNumber;
     };
-    Employee.employeeNumber = 0; //static property
+    Employee.employeeNumber = 0; // static property
     return Employee;
-}());
-var employeeUsingObject = {
+})();
+const employeeUsingObject = {
     name: 'Tom',
     gender: 'male',
-    evaluateSalary: function () {
+    evaluateSalary() {
         return this.name.length * 10000 + this.gender.length * 50000;
-    }
-}; //Employee 생성자로 호출되지 않으므로 employeeNumber증가하지 않음.
+    },
+}; // Employee 생성자로 호출되지 않으므로 employeeNumber증가하지 않음.
 
-var employeeUsingClass = new Employee('Sharon', 'female');
+const employeeUsingClass = new Employee('Sharon', 'female');
 
 console.log(
     `employee name:  ${employeeUsingClass.name} 
 employee gender:${employeeUsingClass.gender}
 employee number: ${Employee.getEmployeeNumber()}`,
 );
-//Class
-var Boss = (function(){
-	let stockPercentage;
-	function Boss(name, gender, stockPer){
-		Object.create(new Employee(name, gender));
-		stockPercentage = stockPer;
-	}
-	Boss.prototype.evaluateSalary= function (){
-		  return 100000000;
-	}
-	Boss.prototype.getStockPercentage = function (){
-		return stockPercentage;
-	}
-	
-	return (Boss);
-}());
+// Class, inheritance
+const Boss = (function () {
+    let stockPercentage;
+    function Boss(name, gender, stockPer) {
+        Object.create(new Employee(name, gender));
+        stockPercentage = stockPer;
+    }
+    Boss.prototype.evaluateSalary = function () {
+        return 100000000;
+    };
+    Boss.prototype.getStockPercentage = function () {
+        return stockPercentage;
+    };
+
+    return Boss;
+})();
 const boss = new Boss('Brian', 'male', 20);
 console.log(`boss name: ${boss.name}
 boss gender: ${boss.gender}
@@ -65,9 +65,9 @@ boss salary: ${boss.evaluateSalary()}
 employee number: ${Employee.getEmployeeNumber()}
 stockPercentage: ${boss.getStockPercentage()}`);
 
-//namespace
+// namespace
 
-var StringUtility;
+let StringUtility;
 (function (StringUtility) {
     function toCapital(str) {
         return str.toUpperCase();
@@ -82,43 +82,35 @@ var StringUtility;
     StringUtility.SubString = SubString;
 })(StringUtility || (StringUtility = {}));
 
-var testNamespace = StringUtility.toCapital("aPple");
-console.log("testNamespace: " + testNamespace);
+const testNamespace = StringUtility.toCapital('aPple');
+console.log(`testNamespace: ${testNamespace}`);
 
-//generics
-//generic function
+// generics
+// generic function
 
 function getArray(items) {
     return new Array().concat(items);
 }
-var myNumArr = getArray([100, 200, 300]);
-var myStrArr = getArray(["Hello", "World"]);
+const myNumArr = getArray([100, 200, 300]);
+const myStrArr = getArray(['Hello', 'World']);
 myNumArr.push(400);
-myStrArr.push("Hello TypeScript");
+myStrArr.push('Hello TypeScript');
 
-
-//generic class
-var Pair =(function () {
-    function Pair() {
-    }
+// generic class
+const Pair = (function () {
+    function Pair() {}
     Pair.prototype.setKeyValue = function (first, second) {
         this.first = first;
         this.second = second;
     };
     Pair.prototype.display = function () {
-        console.log("first = " + this.first + ", second = " + this.second);
+        console.log(`first = ${this.first}, second = ${this.second}`);
     };
     return Pair;
-}());
-var kvp1 = new Pair();
-kvp1.setKeyValue(1, "Steve");
-kvp1.display(); //Output: Key = 1, Val = Steve 
-var kvp2 = new Pair();
-kvp2.setKeyValue("CEO", "Bill");
-kvp2.display(); //Output: Key = CEO, Val = Bill
-
-
-
-
-
-
+})();
+const kvp1 = new Pair();
+kvp1.setKeyValue(1, 'Steve');
+kvp1.display(); // Output: Key = 1, Val = Steve
+const kvp2 = new Pair();
+kvp2.setKeyValue('CEO', 'Bill');
+kvp2.display(); // Output: Key = CEO, Val = Bill
